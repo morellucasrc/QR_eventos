@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Escanear Código QR{% endblock %}
+
+{% block content %}
+    <h2>Escanea tu Código QR</h2>
+    <div class="scanner-container">
+        <video id="video" width="100%" height="auto" autoplay></video>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <div class="scanner-bar"></div>
+    </div>
+    <p id="scanned-info"></p>
+{% endblock %}

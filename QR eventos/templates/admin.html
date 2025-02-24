@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Administración{% endblock %}
+
+{% block content %}
+    <h2>Registros del Evento</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Asistencia</th>
+            <th>Acción</th>
+        </tr>
+        {% for reg in registrations %}
+        <tr>
+            <td>{{ reg.name }}</td>
+            <td>{{ reg.email }}</td>
+            <td>{{ reg.phone }}</td>
+            <td>{{ reg.address }}</td>
+            <td>{{ 'Sí' if reg.attendance else 'No' }}</td>
+            <td><a href="{{ url_for('delete_record', name=reg.name) }}"><button>Eliminar</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/delete_all"><button>Eliminar Todos los Registros</button></a>
+    <br><br>
+    <a href="/download"><button>Descargar PDF</button></a>
+{% endblock %}

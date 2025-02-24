@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Registro{% endblock %}
+
+{% block content %}
+    <h2>Registro de Participante</h2>
+    <form action="/register" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="Nombre completo" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="text" name="phone" placeholder="Teléfono" required>
+        <input type="text" name="address" placeholder="Dirección" required>
+        
+        <button type="submit">Registrar</button>
+    </form>
+    {% if qr_code %}
+        <h3>Tu Código QR:</h3>
+        <img src="data:image/png;base64,{{ qr_code }}" alt="Código QR">
+        <br>
+        <a href="data:image/png;base64,{{ qr_code }}" download="qr_code.png">
+            <button>Descargar Código QR</button>
+        </a>
+    {% endif %}
+{% endblock %}
