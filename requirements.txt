@@ -9,4 +9,5 @@ python-dotenv==1.0.1
 qrcode==8.0
 pytz==2024.2
 urllib3==2.2.3
+fpdf==1.7.2
 
